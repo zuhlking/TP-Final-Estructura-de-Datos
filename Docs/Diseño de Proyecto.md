@@ -90,3 +90,33 @@ Para el trabajo usamos Clases en Python que representan las partes principales d
 
 - Usamos un diccionario (dict) para guardar a los usuarios en el servidor, ya que permite buscarlos rápidamente por su clave.
 - Usamos una lista (list) para manejar los mensajes dentro de una carpeta, ya que es una estructura simple y flexible para almacenar colecciones en orden.
+
+
+```mermaid
+flowchart TD
+
+    A([Inicio]) --> B[Registrar usuario]
+    B -->|Éxito| C[Autenticar usuario]
+    B -->|Email ya registrado| B2[Error y volver]
+
+    C -->|Credenciales válidas| D[Usuario autenticado]
+    C -->|Credenciales inválidas| C2[Error de autenticación]
+
+    D --> E[Acción: Enviar Mensaje]
+    D --> F[Acción: Recibir Mensaje]
+    D --> G[Acción: Listar Carpetas]
+
+    E --> H[ServidorCorreo verifica usuarios]
+    H -->|Usuarios válidos| I[Crear Mensaje]
+    I --> J[Agregar a Inbox del destinatario]
+    I --> K[Agregar a Enviados del remitente]
+    J --> L[Confirmar envío]
+    K --> L
+
+    F --> M[Guardar en Inbox del usuario]
+    M --> L
+
+    G --> N[Listar carpetas del usuario]
+    N --> L
+
+    L --> O([Fin])
