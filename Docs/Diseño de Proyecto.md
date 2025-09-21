@@ -120,3 +120,16 @@ flowchart TD
     N --> L
 
     L --> O([Fin])
+
+
+
+
+
+
+
+
+
+
+
+
+<img width="1064" height="745" alt="tp estructura de datos" src="https://github.com/user-attachments/assets/a15263e2-ff06-44c0-808b-136a1f80b377" />
